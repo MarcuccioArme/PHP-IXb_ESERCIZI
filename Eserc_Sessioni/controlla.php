@@ -6,7 +6,7 @@
     $form_user = $_POST["username"];
     $form_password = $_POST["password"];
 
-    if ($form_user === $usernameCorretto && $form_password === $passwordCorretta) {
+    if (isset($form_user) && $form_user == $usernameCorretto && isset($form_password) && $form_password == $passwordCorretta) {
 
         $_SESSION["username"] = $form_user;
         $_SESSION["password"] = $form_password;
@@ -18,6 +18,11 @@
         $_SESSION["count_p2"] = 0;
         $_SESSION["count_p3"] = 0;
 
+    } else {
+
+        echo "<h3>Username o password non corretta.</h3>";
+        echo '<a href="index.php"><button>Rifai il login</button></a>';
+        
     }
 
 ?>
